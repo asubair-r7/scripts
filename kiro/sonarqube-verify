@@ -1,0 +1,19 @@
+---
+inclusion: manual
+---
+# Verify Sonarqube Changes
+
+This skill verifies all the sonarqube changes done and posts an update.
+
+## Parameters
+
+- `repo`: The repo where changes were made
+- `jira_ticket`: The jira ticket listing all the sonarqube issues where update needs to be posted
+
+## Steps
+
+1. Check SonarQube for the PR analysis. If there are any new issues introduced by the fixes, fix those too and repeat the build verification until SonarQube shows 0 new issues on the PR. 
+
+2. Commit all changes as new commits, not REBASE, push the branch
+
+3. Post a comment on the Jira ticket summarizing: SonarQube before/after metrics, number of issues fixed, effort saved, rules addressed, what remains and why, and verification results.
